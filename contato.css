@@ -1,0 +1,399 @@
+/* ==========================================================================
+   VARIÁVEIS DE SISTEMA (Design System Integrado)
+   ========================================================================== */
+:root {
+    --primary-color: #0f172a; 
+    --secondary-color: #0284c7; 
+    --accent-color: #f59e0b; 
+    --bg-color: #f8fafc; 
+    --surface-color: #ffffff; 
+    --text-main: #334155; 
+    --text-light: #64748b; 
+    
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 40px;
+    
+    --shadow-soft: 0 20px 40px -15px rgba(15, 23, 42, 0.05);
+    --shadow-hover: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+}
+
+/* ==========================================================================
+   RESET E TIPOGRAFIA BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+    max-width: 75ch; 
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   NAVBAR (Glassmorphism)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+}
+
+.nav-logo {
+    color: #ffffff;
+    font-family: var(--font-heading);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   HEADER ESPECÍFICO (Página Contato)
+   ========================================================================== */
+.header-contato {
+    text-align: center;
+    padding: 180px 20px 100px 20px;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 64, 175, 0.8) 100%), 
+                url('midia/Mar.jpg') center/cover no-repeat;
+    color: white;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    margin-bottom: 60px;
+    box-shadow: var(--shadow-hover);
+    background-size: cover;
+    background-attachment: fixed;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    margin-bottom: -40px;
+    position: relative;
+    z-index: 1;
+}
+
+.header-contato h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: white;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.header-contato p {
+    margin: 0 auto 10px auto;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   CONTAINER E SECTIONS
+   ========================================================================== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px 60px 24px;
+}
+
+section {
+    background: var(--surface-color);
+    padding: 48px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 40px;
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+section h2::before {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* ==========================================================================
+   GRID E CARDS DE CONTATO (Específico da página)
+   ========================================================================== */
+.contato-grid {
+    display: grid;
+    
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+}
+
+.contato-card {
+    background: var(--bg-color);
+    padding: 32px 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.contato-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color);
+}
+
+.contato-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.contato-card h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+}
+
+.contato-card p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--text-light);
+}
+
+.contato-card strong {
+    color: var(--text-main);
+}
+
+
+.link-contato {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.link-contato:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   BOTÕES E CTA
+   ========================================================================== */
+.cta-container {
+    text-align: center;
+    margin: 60px 0 40px 0;
+    padding: 40px;
+    background: linear-gradient(to right, #eff6ff, #f8fafc);
+    border-radius: var(--radius-lg);
+    border: 1px dashed #bae6fd;
+}
+
+.btn-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 16px 40px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-block;
+    font-family: var(--font-heading);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 20px -5px rgba(220, 39, 67, 0.4);
+}
+
+.btn-instagram:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 25px -5px rgba(220, 39, 67, 0.5);
+    color: white;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 40px;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0 auto;
+}
+
+footer strong {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-contato {
+        padding: 140px 20px 60px 20px;
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    }
+    
+    section {
+        padding: 32px 24px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        display: none; 
+    }
+    .nav-container {
+        justify-content: center;
+    }
+}
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.faq-item {
+    background: var(--bg-color);
+    border: 1px solid rgba(15, 23, 42, 0.05);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+
+.faq-item summary {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--primary-color);
+    cursor: pointer;
+    list-style: none; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.faq-item summary::after {
+    content: '+';
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.faq-item p {
+    margin-top: 16px;
+    margin-bottom: 0;
+    color: var(--text-light);
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 16px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: var(--radius-xl);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
