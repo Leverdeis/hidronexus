@@ -158,6 +158,111 @@ p {
     color: rgba(255, 255, 255, 0.95);
     max-width: 600px;
 }
+/* ==========================================================================
+   HEADER HOME INFERIOR COM FOOTER INTEGRADO
+   ========================================================================== */
+.header-home-bottom {
+    text-align: center;
+    padding: 100px 20px 40px 20px;
+    margin-top: 60px;
+
+    /* Reaproveitando o seu estilo visual do Ocean Parallax */
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 132, 199, 0.85) 100%),
+                url('midia/Ocean.jpg') center center;
+    background-size: cover;
+    background-attachment: fixed; 
+    color: white;
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* Arredonda as bordas de cima */
+    box-shadow: var(--shadow-hover);
+    position: relative;
+    z-index: 1;
+}
+
+.header-home-bottom h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    color: white;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Estilização do Footer que está dentro do Header */
+.footer-moderno-inside {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil clara */
+    text-align: left;
+}
+
+.footer-moderno-inside .footer-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-moderno-inside .footer-brand h3,
+.footer-moderno-inside .footer-links h4,
+.footer-moderno-inside .footer-social h4 {
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
+.footer-moderno-inside .footer-brand p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+
+.footer-moderno-inside .footer-links a, 
+.footer-moderno-inside .footer-social a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-moderno-inside .footer-links a:hover, 
+.footer-moderno-inside .footer-social a:hover {
+    color: var(--accent-color); /* Destaca com o amarelo no hover */
+}
+
+.footer-moderno-inside .emergencia {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.footer-moderno-inside .emergencia strong {
+    color: var(--accent-color);
+}
+
+.footer-moderno-inside .footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .header-home-bottom {
+        padding: 60px 20px 30px 20px;
+        background-attachment: scroll; 
+    }
+    .footer-moderno-inside .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-moderno-inside .footer-links a, 
+    .footer-moderno-inside .footer-social a {
+        justify-content: center;
+    }
+}
 
 /* ==========================================================================
    CONTEÚDO PRINCIPAL E LAYOUT DE COLUNAS (NOVO)
@@ -171,7 +276,7 @@ p {
 }
 
 section {
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 56px;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-soft);
@@ -459,4 +564,41 @@ body {
     .footer-links a, .footer-social a {
         justify-content: center;
     }
+}
+.btn-leitor-ia {
+    background-color: var(--surface-color);
+    color: var(--secondary-color);
+    border: 1.5px solid var(--secondary-color);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px; /* Espaço entre o botão e o subtítulo */
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-leitor-ia:hover {
+    background-color: var(--secondary-color);
+    color: var(--surface-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-leitor-ia.lendo {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    animation: pulse-leitor 1.5s infinite;
+}
+
+@keyframes pulse-leitor {
+    0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
 }

@@ -241,7 +241,7 @@ section:hover {
    CITAÇÃO (Block Quote)
    ========================================================================== */
 .block-quote {
-    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #9b103e 100%);
     color: white;
     padding: 40px 40px 40px 60px;
     border-radius: var(--radius-lg);
