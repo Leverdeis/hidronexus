@@ -12,7 +12,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-
     <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2026/03/03/22/20260303223430-I0CG164R.js" defer></script>
     
@@ -32,28 +31,10 @@
         <p style="font-size: 1.3rem; margin-bottom: 10px; font-weight: 500;">Protagonismo Feminino na Preservação dos Nossos Rios</p>
         <p>Transformando a ciência em ferramenta de cidadania e cuidado com os recursos hídricos.</p>
     </header>
-    <div class="container">
-        <main>
-                <section id="impacto" class="impact-section">
-            <div class="impact-grid">
-                <div class="impact-card">
-                    <i class="ph ph-drop"></i>
-                    <h3 class="counter">500+</h3>
-                    <p>Análises de Água</p>
-                </div>
 
-                <div class="impact-card">
-                    <i class="ph ph-student"></i>
-                    <h3 class="counter">1200</h3>
-                    <p>Alunos Impactados</p>
-                </div>
-                <div class="impact-card">
-                    <i class="ph ph-users-three"></i>
-                    <h3 class="counter">50+</h3>
-                    <p>Guardiãs Formadas</p>
-                </div>
-            </div>
-             </section>
+<div class="container">
+    <main>
+       
             <section id="projetos">
                  <div class="content-split">
         
@@ -90,7 +71,28 @@
                 
             </section>
 
-            
+            <section id="impacto" class="impact-section">
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <i class="ph ph-drop"></i>
+                    <h3 class="counter">500+</h3>
+                    <p>Análises de Água</p>
+                </div>
+
+                <div class="impact-card">
+                    <i class="ph ph-student"></i>
+                    <h3 class="counter">1200</h3>
+                    <p>Alunos Impactados</p>
+                </div>
+                <div class="impact-card">
+                    <i class="ph ph-users-three"></i>
+                    <h3 class="counter">50+</h3>
+                    <p>Guardiãs Formadas</p>
+                </div>
+            </div>
+             </section>
+
+             
             <section id="problema">
                 <div class="content-split reverse-mobile">
                     <div class="image-content">
@@ -172,17 +174,25 @@
         
         let sinteseFala = window.speechSynthesis;
         let estaLendo = false;
+        let vozesDisponiveis = [];
+
+        // 1. Função para carregar as vozes do sistema
+        function carregarVozes() {
+            vozesDisponiveis = sinteseFala.getVoices();
+        }
+      
+        carregarVozes();
+        if (sinteseFala.onvoiceschanged !== undefined) {
+            sinteseFala.onvoiceschanged = carregarVozes;
+        }
 
         btnLer.addEventListener('click', () => {
-            // Se já estiver lendo, o clique serve para parar
             if (estaLendo) {
                 sinteseFala.cancel();
                 resetarBotao();
                 return;
             }
 
-            // Captura todo o texto dentro da div, removendo o texto do próprio botão
-            // Criamos um clone para extrair apenas os parágrafos, cabeçalhos e listas
             let textoLimpo = "";
             const elementosTexto = conteudoParaLer.querySelectorAll('h2, h3, p, li span');
             elementosTexto.forEach(el => {
@@ -191,9 +201,26 @@
 
             if (textoLimpo.trim() !== "") {
                 const leitura = new SpeechSynthesisUtterance(textoLimpo);
-                leitura.lang = 'pt-BR'; // Define o idioma para Português do Brasil
-                leitura.rate = 1.0;     // Velocidade normal
+                leitura.lang = 'pt-BR'; 
+                leitura.rate = 1.0;     
                 
+                // 2. Lógica para escolher uma voz feminina em Português
+                const vozFeminina = vozesDisponiveis.find(voz => 
+                    voz.lang.includes('pt-BR') && 
+                    (voz.name.includes('Google') || 
+                     voz.name.includes('Maria') || 
+                     voz.name.includes('Luciana') || 
+                     voz.name.includes('Francisca') ||
+                     voz.name.includes('Feminina'))
+                );
+
+                // 3. Aplica a voz encontrada ou usa a padrão pt-BR
+                if (vozFeminina) {
+                    leitura.voice = vozFeminina;
+                } else {
+                    const vozPadraoBR = vozesDisponiveis.find(voz => voz.lang.includes('pt-BR'));
+                    if (vozPadraoBR) leitura.voice = vozPadraoBR;
+                }
             
                 leitura.onstart = () => {
                     estaLendo = true;
@@ -210,7 +237,6 @@
                     resetarBotao();
                 };
 
-                // Inicia a fala
                 sinteseFala.speak(leitura);
             }
         });

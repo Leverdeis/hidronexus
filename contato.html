@@ -23,24 +23,7 @@
         <h1>Canais de Apoio</h1>
         <p>Você não está sozinho(a). Estamos aqui para ouvir e ajudar.</p>
     </header>
-    <section id="faq">
-        <div class="container">
-            <h2>Perguntas Frequentes</h2>
-            <div class="faq-container">
-                <details class="faq-item">
-                    <summary>Como posso me tornar uma Guardiã?</summary>
-                <p>Qualquer estudante interessada pode participar dos nossos processos seletivos abertos semestralmente nas escolas parceiras.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Como funciona o monitoramento das águas?</summary>
-                <p>Utilizamos kits de análise laboratorial adaptados para o campo, verificando pH, turbidez e presença de coliformes.</p>
-            </details>
-            <details class="faq-item">
-                <summary>Onde reportar um crime ambiental?</summary>
-                <p>Você pode utilizar nosso canal de denúncias ou ligar diretamente para os órgãos competentes indicados na aba de contatos.</p>
-            </details>
-        </div>
-    </div>
+    
     <div class="container">
         <section>
             <h2>Diretoria e Coordenação</h2>
@@ -57,6 +40,26 @@
                     <p>Telefone: (00) 0000-0000</p>
                 </div>
             </div>
+            </section>
+        </section>
+        <section id="faq">
+        <div class="container">
+            <h2>Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <details class="faq-item">
+                    <summary>Como posso me tornar uma Guardiã?</summary>
+                <p>Qualquer estudante interessada pode participar dos nossos processos seletivos abertos semestralmente nas escolas parceiras.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Como funciona o monitoramento das águas?</summary>
+                <p>Utilizamos kits de análise laboratorial adaptados para o campo, verificando pH, turbidez e presença de coliformes.</p>
+            </details>
+            <details class="faq-item">
+                <summary>Onde reportar um crime ambiental?</summary>
+                <p>Você pode utilizar nosso canal de denúncias ou ligar diretamente para os órgãos competentes indicados na aba de contatos.</p>
+            </details>
+        </div>
+        </div>
         </section>
         <div class="cta-container">
             <p style="margin-bottom: 15px;">Dúvidas muito específicas? Mande um Direct!</p>
@@ -64,6 +67,68 @@
                @guardias.aguas
             </a>
         </div>
+        <div class="container">
+        <section style="margin-top: 40px;">
+            <h2><i class="ph ph-shield-warning" style="color: var(--accent-color); margin-right: 10px;"></i>Órgãos de Proteção Ambiental</h2>
+            <p>Em caso de emergências ambientais, queimadas ou crimes contra a natureza, contate diretamente os órgãos responsáveis.</p>
+            
+            <div class="contato-grid">
+                <div class="contato-card">
+                    <h3>Polícia Militar Ambiental</h3>
+                    <p>Para denúncias de crimes ambientais em andamento (desmatamento, poluição).</p>
+                    <strong style="color: var(--secondary-color); font-size: 1.2rem;">Ligue: 190</strong>
+                </div>
+                <div class="contato-card">
+                    <h3>Linha Verde - IBAMA</h3>
+                    <p>Canal federal para denúncias de agressões ao meio ambiente e animais silvestres.</p>
+                    <strong style="color: var(--secondary-color); font-size: 1.2rem;">Ligue: 0800 61 8080</strong>
+                </div>
+                <div class="contato-card">
+                    <h3>Defesa Civil</h3>
+                    <p>Para riscos de desastres naturais, inundações ou deslizamentos.</p>
+                    <strong style="color: var(--secondary-color); font-size: 1.2rem;">Ligue: 199</strong>
+                </div>
+            </div>
+        </section>
+        </div>
+        <div class="container">
+        <section class="form-section">
+            <h2 style="text-align: center; margin-bottom: 10px;">Fale com as Guardiãs</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Tem alguma dúvida, quer sugerir uma parceria ou se tornar voluntária? Escreva para nós!</p>
+            
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome" placeholder="Como devemos te chamar?" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seu.email@exemplo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="assunto">Qual o assunto?</label>
+                    <select id="assunto">
+                        <option>Quero ser Voluntária</option>
+                        <option>Dúvida sobre o Projeto</option>
+                        <option>Parcerias Escolares</option>
+                        <option>Denúncia Anônima</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="mensagem">Sua Mensagem</label>
+                    <textarea id="mensagem" rows="5" placeholder="Escreva os detalhes aqui..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn-enviar">
+                    <i class="ph ph-paper-plane-tilt" style="margin-right: 8px;"></i> Enviar Mensagem
+                </button>
+            </form>
+        </section>
+    </div>
         <footer>
             &copy; 2026 Projeto Guardiãs das Águas. <br>
             A educação é o caminho, a escuta é a ponte.

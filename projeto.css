@@ -359,3 +359,257 @@ footer strong {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary-color);
 }
+/* ==========================================================================
+   SISTEMA DE ABAS (Tabs)
+   ========================================================================== */
+.tabs-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(15, 23, 42, 0.1);
+    padding-bottom: 10px;
+    overflow-x: auto; /* Para não quebrar no celular */
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background-color: #f1f5f9;
+    color: var(--primary-color);
+}
+
+.tab-btn.active {
+    background-color: rgb(255, 124, 2);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   SECÇÃO DE PILARES E GALERIA EXPANSÍVEL
+   ========================================================================== */
+.secao-pilares {
+    margin-top: 40px; 
+    /* Ao colocar no HTML correto, ela já assume o fundo branco, o padding e a sombra das outras! */
+}
+
+.gallery-container {
+    display: flex;
+    gap: 15px;
+    height: 400px; /* Reduzi um pouquinho para caber melhor na caixa branca */
+    width: 100%;   /* Preenche 100% de dentro da caixa branca */
+    margin-top: 10px;
+}
+
+/* Os itens da galeria continuam iguais */
+.gallery-item {
+    flex: 1; 
+    position: relative;
+    border-radius: var(--radius-md);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); 
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery-item:hover {
+    flex: 5;
+    box-shadow: var(--shadow-hover);
+}
+
+/* Gradiente escuro por cima da imagem para dar leitura ao texto */
+.item-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.2) 100%);
+    transition: background 0.4s ease;
+}
+
+.gallery-item:hover .item-overlay {
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, transparent 100%);
+}
+
+.item-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    color: white;
+}
+
+/* Caixa do Ícone */
+.icon-box {
+    background-color: var(--secondary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.gallery-item:hover .icon-box {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+/* Animação do Texto: Escondido por padrão, aparece no hover */
+.text-box {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    white-space: nowrap; /* Impede o texto de quebrar linha enquanto expande */
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.gallery-item:hover .text-box {
+    opacity: 1;
+    transform: translateX(0);
+    white-space: normal; /* Permite quebrar linha depois que abrir */
+}
+
+.text-box h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.text-box p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
+
+/* Responsividade: No celular, as faixas ficam horizontais e expandem para baixo */
+@media (max-width: 768px) {
+    .gallery-container {
+        flex-direction: column;
+        height: 600px;
+    }
+    .text-box {
+        opacity: 1; /* No celular deixamos o título sempre visível */
+        transform: translateX(0);
+        white-space: normal;
+    }
+    .text-box p {
+        display: none; /* Esconde o parágrafo no celular para poupar espaço, aparece só ao tocar */
+    }
+    .gallery-item:active .text-box p, 
+    .gallery-item:hover .text-box p {
+        display: block;
+    }
+}
+/* ==========================================================================
+   FOOTER (Rodapé)
+   ========================================================================== */
+.footer-moderno {
+    background: var(--surface-color);
+    border-top: 1px solid rgba(15, 23, 42, 0.05);
+    padding: 60px 24px 20px 24px;
+    margin-top: 60px;
+}
+
+.footer-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    color: var(--primary-color);
+}
+
+.footer-brand p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.footer-links, .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links h4, .footer-social h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.footer-links a, .footer-social a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    color: var(--secondary-color);
+}
+
+.emergencia {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.1);
+    color: var(--text-main);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(15, 23, 42, 0.05);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Responsividade do Footer */
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-links a, .footer-social a {
+        justify-content: center;
+    }
+}

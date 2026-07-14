@@ -1,5 +1,4 @@
-
-    document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
         const btnLer = document.getElementById('btn-ler-projetos');
         const conteudoParaLer = document.getElementById('texto-projetos');
         const iconeBtn = btnLer.querySelector('i');
@@ -9,13 +8,11 @@
         let estaLendo = false;
         let vozesDisponiveis = [];
 
-        // 1. Função para carregar as vozes do navegador
+        // 1. Função para carregar as vozes do sistema
         function carregarVozes() {
             vozesDisponiveis = sinteseFala.getVoices();
         }
-
-        // Os navegadores carregam as vozes de forma assíncrona, 
-        // então precisamos ouvir o evento que avisa quando elas estão prontas.
+      
         carregarVozes();
         if (sinteseFala.onvoiceschanged !== undefined) {
             sinteseFala.onvoiceschanged = carregarVozes;
@@ -40,7 +37,6 @@
                 leitura.rate = 1.0;     
                 
                 // 2. Lógica para escolher uma voz feminina em Português
-                // Procura por nomes comuns de vozes femininas nos sistemas operacionais
                 const vozFeminina = vozesDisponiveis.find(voz => 
                     voz.lang.includes('pt-BR') && 
                     (voz.name.includes('Google') || 
@@ -50,7 +46,7 @@
                      voz.name.includes('Feminina'))
                 );
 
-                // Se encontrar a voz específica, aplica. Se não, pega a primeira voz pt-BR que achar.
+                // 3. Aplica a voz encontrada ou usa a padrão pt-BR
                 if (vozFeminina) {
                     leitura.voice = vozFeminina;
                 } else {

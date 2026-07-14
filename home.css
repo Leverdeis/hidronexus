@@ -165,8 +165,6 @@ p {
     text-align: center;
     padding: 100px 20px 40px 20px;
     margin-top: 60px;
-
-    /* Reaproveitando o seu estilo visual do Ocean Parallax */
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 132, 199, 0.85) 100%),
                 url('midia/Ocean.jpg') center center;
     background-size: cover;
@@ -248,7 +246,6 @@ p {
     font-size: 0.9rem;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .header-home-bottom {
         padding: 60px 20px 30px 20px;

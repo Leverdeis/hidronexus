@@ -64,6 +64,49 @@
             </div>
         </section>
 
+         
+        <section id="pilares" data-aos="fade-up" class="secao-pilares">
+            <h2 style="margin-bottom: 20px; display: flex; justify-content: center;">Nossos Pilares de Ação</h2>
+            
+            <div class="gallery-container">
+                <div class="gallery-item" style="background-image: url('midia/Hand-Plant.jpg');">
+                    <div class="item-overlay"></div>
+                    <div class="item-content">
+                        <div class="icon-box"><i class="ph ph-plant"></i></div>
+                        <div class="text-box">
+                            <h3>Preservação</h3>
+                            <p>Mapeamento e cuidado das nascentes locais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="background-image: url('midia/Books.jpg');">
+                    <div class="item-overlay"></div>
+                    <div class="item-content">
+                        <div class="icon-box"><i class="ph ph-books"></i></div>
+                        <div class="text-box">
+                            <h3>Educação Base</h3>
+                            <p>Oficinas aplicadas nas escolas locais.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" style="background-image:url(midia/lab_woman.webp)">
+                    <div class="item-overlay"></div>
+                    <div class="item-content">
+                        <div class="icon-box"><i class="ph ph-gender-female"></i></div>
+                        <div class="text-box">
+                            <h3>Protagonismo</h3>
+                            <p>Incentivando meninas a liderarem projetos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+   
+                
+
+
         <section id="origem">
             <div class="content-split reverse-mobile">
                 <div class="image-content">
@@ -86,6 +129,30 @@
                 </div>
             </div>
         </section>
+     <section class="tabs-section">
+    <h2>Entenda o Desafio</h2>
+    
+    <div class="tabs-header">
+        <button class="tab-btn active" onclick="abrirAba(event, 'causas')">As Causas</button>
+        <button class="tab-btn" onclick="abrirAba(event, 'consequencias')">As Consequências</button>
+        <button class="tab-btn" onclick="abrirAba(event, 'solucoes')">Nossa Solução</button>
+    </div>
+
+    <div id="causas" class="tab-content active">
+        <h3>A Origem da Poluição</h3>
+        <p>O descarte inadequado de lixo, a falta de saneamento básico em áreas vulneráveis e o escoamento de produtos químicos industriais são os principais vilões dos nossos rios locais.</p>
+    </div>
+
+    <div id="consequencias" class="tab-content">
+        <h3>O Impacto na Comunidade</h3>
+        <p>A contaminação das águas gera doenças de veiculação hídrica, afeta a fauna e flora local e diminui drasticamente a qualidade de vida das famílias que dependem desses recursos.</p>
+    </div>
+
+    <div id="solucoes" class="tab-content">
+        <h3>O Papel das Guardiãs</h3>
+        <p>Atuamos através de monitoramento científico contínuo, educação ambiental nas escolas e empoderamento da comunidade para denunciar e cobrar melhorias do poder público.</p>
+    </div>
+</section>
 
         <div class="cta-container">
             <p style="margin-bottom: 20px; font-weight: bold; color: var(--primary-color); font-size: 1.2rem;">Quer acompanhar nosso dia a dia e descobertas?</p>
@@ -96,10 +163,47 @@
         </div>
     </div>
 
-    <footer>
-        <p>&copy; 2026 Projeto Guardiãs das Águas. Todos os direitos reservados.</p>
-        <p><strong>Ciência e Cidadania caminhando juntas.</strong></p>
+   <footer class="footer-moderno">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Guardiãs das Águas</h3>
+                <p>Transformando a ciência em ferramenta de cidadania e cuidado com os recursos hídricos.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a href="projeto.html">O Projeto</a>
+                <a href="educativo.html">Educação Ambiental</a>
+                <a href="contato.html">Contatos Úteis</a>
+            </div>
+            <div class="footer-social">
+                <h4>Acompanhe</h4>
+                <a href="https://www.instagram.com/guardias.aguas?igsh=MWtiZDVyd2kwNTNuaQ==" target="_blank">
+                    <i class="ph ph-instagram-logo"></i> Instagram
+                </a>
+                <p class="emergencia">Emergência Ambiental: <strong>0800-XXX-XXXX</strong></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Projeto Guardiãs das Águas. Desenvolvido via GitHub Pages.</p>
+        </div>
     </footer>
+    <script>
+function abrirAba(evento, idAba) {
+    const conteudos = document.getElementsByClassName("tab-content");
+    for (let i = 0; i < conteudos.length; i++) {
+        conteudos[i].classList.remove("active");
+    }
 
+    // Remove a classe 'active' de todos os botões
+    const botoes = document.getElementsByClassName("tab-btn");
+    for (let i = 0; i < botoes.length; i++) {
+        botoes[i].classList.remove("active");
+    }
+
+    // Mostra a aba atual e adiciona 'active' no botão clicado
+    document.getElementById(idAba).classList.add("active");
+    evento.currentTarget.classList.add("active");
+}
+</script>
 </body>
 </html> 
